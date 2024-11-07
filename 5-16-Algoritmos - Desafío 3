@@ -1,0 +1,25 @@
+def buscar_estudiante(lista_estudiantes, estudiante_objetivo):
+    izquierda, derecha = 0, len(lista_estudiantes) - 1
+
+    while izquierda <= derecha:
+        medio = (izquierda + derecha) // 2
+        estudiante_medio = lista_estudiantes[medio]
+
+        # Comparación alfabética
+        if estudiante_medio == estudiante_objetivo:
+            return f"Estudiante '{estudiante_objetivo}' encontrado en la posición {medio + 1}"
+        elif estudiante_medio < estudiante_objetivo:
+            izquierda = medio + 1
+        else:
+            derecha = medio - 1
+
+    return f"Estudiante '{estudiante_objetivo}' no encontrado en la lista"
+
+# Ejemplo de uso
+# Lista de estudiantes ordenada alfabéticamente
+estudiantes = ["Ana", "Carlos", "Diego", "Lucía", "Mariana", "Pedro", "Sara"]
+
+# Buscar un estudiante específico
+estudiante_objetivo = "Lucía"
+resultado = buscar_estudiante(estudiantes, estudiante_objetivo)
+print(resultado)
